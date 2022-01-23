@@ -1,0 +1,35 @@
+footer {
+  background: transparent;
+  position: relative;
+
+  .portrait-background {
+    right: 0;
+    left: auto;
+    overflow: hidden;
+    width: 50%;
+    img {
+      width: 100%;
+    }
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .email-link {
+    color: map-get($blues, "100");
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: map-get($blues, "100");
+      text-decoration: underline;
+    }
+  }
+
+  .say-hi {
+    line-height: 1.25;
+  }
+}

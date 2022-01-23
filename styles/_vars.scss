@@ -1,0 +1,22 @@
+:root {
+  --dynamic-bg-color: #fff;
+  --hero-title-left: 50%;
+  --hero-bacground-width: 100%;
+}
+
+$blue-100: #edf4f5;
+$blue-200: #9cd1db;
+$blue-300: #55b0c2;
+$blue-400: #3a98ab;
+$blue-500: #121212;
+
+$blues: (
+  "100": $blue-100,
+  "200": $blue-200,
+  "300": $blue-300,
+  "400": $blue-400,
+  "500": $blue-500
+);
+
+$navbar-height-mobile: 40px;
+$navbar-height-desktop: 56px;

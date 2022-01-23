@@ -1,0 +1,53 @@
+// Configuration
+@import "vars";
+@import "bootstrap/scss/functions";
+
+// Default variable overrides
+
+$body-bg: map-get($blues, "100");
+$body-color: map-get($blues, "100");
+
+$primary: map-get($blues, "200");
+$success: map-get($blues, "200");
+$light: map-get($blues, "100");
+$dark: map-get($blues, "500");
+
+$font-family-monospace: "Montserrat", sans-serif;
+$font-family-base: "Work Sans", sans-serif;
+$headings-font-family: "Montserrat", sans-serif;
+
+$font-size-base: 1rem;
+
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-bolder: bolder;
+
+$font-weight-base: $font-weight-light !default;
+
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2.25 !default;
+$h3-font-size: $font-size-base * 2 !default;
+$h4-font-size: $font-size-base * 1.75 !default;
+$h5-font-size: $font-size-base * 1.5 !default;
+$h6-font-size: $font-size-base * 1.25 !default;
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// Layout & components
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/placeholders";
+
+// Helpers
+@import "bootstrap/scss/helpers";
+
+// Utilities
+@import "bootstrap/scss/utilities/api";

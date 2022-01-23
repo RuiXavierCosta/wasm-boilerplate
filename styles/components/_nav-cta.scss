@@ -1,0 +1,53 @@
+.nav-cta {
+  z-index: 5;
+  bottom: 0.5em;
+
+  @media (min-width: map-get($grid-breakpoints, "md")) {
+    z-index: 0;
+    bottom: 1em;
+  }
+
+  .container {
+    text-align: center;
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      text-align: left;
+    }
+  }
+
+  .cta-wrapper {
+    transform: translateX(0);
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      transform: translateX(calc(-100% - 0.5em));
+    }
+
+    p {
+      font-size: 0.75em;
+      transform: rotate(0deg);
+      color: map-get($blues, "500");
+    }
+  }
+
+  .cta-arrow {
+    animation: bounce 1.5s ease infinite;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-0.3em);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

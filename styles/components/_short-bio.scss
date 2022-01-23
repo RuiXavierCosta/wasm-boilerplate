@@ -1,0 +1,14 @@
+.short-bio {
+  background: transparent;
+  position: relative;
+
+  .bio-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    @media (min-width: map-get($grid-breakpoints, "sm")) {
+      text-align: left;
+    }
+  }
+}

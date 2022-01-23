@@ -1,0 +1,25 @@
+@import "vars";
+
+.navbar {
+  z-index: 2;
+  height: $navbar-height-mobile;
+
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    height: $navbar-height-desktop;
+  }
+
+  .nav-content {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-link {
+    color: map-get($blues, "500");
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: map-get($blues, "500");
+    }
+  }
+}

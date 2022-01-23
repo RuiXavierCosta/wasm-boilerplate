@@ -1,0 +1,48 @@
+.hero {
+  background: transparent;
+  position: relative;
+
+  .background-element {
+    $outer-container-margin: var(--bs-gutter-x, 0.75rem);
+    background-color: var(--dynamic-bg-color);
+
+    position: absolute;
+    top: 0;
+    left: $outer-container-margin;
+    width: calc(var(--hero-bacground-width) - 2 * $outer-container-margin);
+    height: 100%;
+    z-index: 0;
+    transition-property: width;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      left: 0;
+      width: var(--hero-bacground-width);
+    }
+  }
+
+  .greeting {
+    position: absolute;
+    z-index: 1;
+    display: inline-flex;
+    flex-direction: column;
+    transform: translateX(-50%);
+    left: 50%;
+    transition-property: left, transform;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      transform: translateX(calc(0% - var(--hero-title-left)));
+      left: var(--hero-title-left);
+    }
+
+    &__start,
+    &__end {
+      line-height: 0.75;
+      font-size: 150px;
+      color: map-get($blues, "100");
+    }
+  }
+}

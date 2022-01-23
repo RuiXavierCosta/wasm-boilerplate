@@ -1,0 +1,95 @@
+@import "vars";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  min-height: 100%;
+}
+
+#__next {
+  position: relative;
+  min-height: 100%;
+}
+
+section,
+footer {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: calc(100% - $navbar-height-mobile);
+
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    height: calc(100% - $navbar-height-desktop);
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+%bg {
+  $outer-container-margin: var(--bs-gutter-x, 0.75rem);
+  background-color: var(--dynamic-bg-color);
+  width: calc(100% - 2 * $outer-container-margin);
+
+  position: absolute;
+  top: 0;
+  left: $outer-container-margin;
+  height: 100%;
+  z-index: 0;
+}
+
+.half-background {
+  @extend %bg;
+
+  @media (min-width: map-get($grid-breakpoints, "md")) {
+    left: 0;
+    width: 50%;
+  }
+}
+
+.full-background {
+  @extend %bg;
+
+  @media (min-width: map-get($grid-breakpoints, "md")) {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.bottom-overflow {
+  height: $navbar-height-mobile;
+
+  @media (min-width: map-get($grid-breakpoints, "sm")) {
+    height: $navbar-height-desktop;
+  }
+}
