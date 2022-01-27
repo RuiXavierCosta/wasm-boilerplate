@@ -1,7 +1,5 @@
 import { useLayoutEffect } from 'react';
 
-const isBrowser = typeof window !== `undefined`;
-
 export default function useScrollPosition(effect, deps) {
   const callBack =() => {
     const position = window.scrollY;
