@@ -44,7 +44,12 @@ const code = {
     title: 'Some example title.',
     description: 'Some example description.',
     JS: {
-      code: 'some code',
+      code: `const array = new Array();
+array.fill(300);
+
+if(array.length > 0) {
+  return;
+}`,
       time: 500,
     },
     WASM: {
@@ -53,6 +58,11 @@ const code = {
     },
     results: 'We can see something.'
   }
+  // Generate Array
+  // Order string array
+  // JSON parse
+  // FFT
+  // Filter array
 };
 
 export default function Home() {
