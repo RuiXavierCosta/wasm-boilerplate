@@ -6,9 +6,11 @@
     position: relative;
     z-index: 1;
     text-align: center;
+    width: 100%;
 
-    @media (min-width: map-get($grid-breakpoints, "sm")) {
+    @media (min-width: map-get($grid-breakpoints, "md")) {
       text-align: left;
+      width: 50%;
     }
   }
 }

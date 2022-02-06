@@ -39,27 +39,30 @@ const sections = {
   },
 };
 
+const orderNames = () => {
+  console.log('ordering JS');
+  [...randomNames].sort(); // deconstruct to new array to stop mutation
+  console.log('ordered JS');
+}
+
 const code = {
   code1: {
-    title: 'Some example title.',
-    description: 'Some example description.',
+    title: 'Order an array strings',
+    description: `Let\s start with an <a href="/mock-data.js" target="example-data" class="text-light text-decoration-underline">array with 20 000 random names</a>, and see how fast each approach handles this.
+One small thing we needed to do, was to deconstruct the array ([...randomNames]) to stop mutation. To be fair, this could
+be done before-hand, but it shouldn't make much difference at all (I tested)`,
     JS: {
-      code: `const array = new Array();
-array.fill(300);
-
-if(array.length > 0) {
-  return;
-}`,
-      time: 500,
+      code: `[...randomNames].sort();`,
+      callback: () => orderNames(),
     },
     WASM: {
-      code: 'some other code',
-      time: 100,
+      code: 'sort.Strings(randomNames)',
+      callback: () => sortStringsWasm(),
     },
-    results: 'We can see something.'
+    uri: '#order-string-array',
   }
+  // Remove repeated string array
   // Generate Array
-  // Order string array
   // JSON parse
   // FFT
   // Filter array
@@ -68,7 +71,9 @@ if(array.length > 0) {
 export default function Home() {
   useEffect(async ()=> {
     await setupWASM();
-    sayHi();
+    if(typeof encodedNames !== 'undefined') {
+      loadNamesToGo(encodedNames);
+    }
   });
 
   return (
@@ -80,8 +85,8 @@ export default function Home() {
       <BackgroundBar sections={sections} />
       <ShortBio ref={sections.shortBio.el}/>
       <CodeExample ref={sections.code1.el} {...code.code1}/>
-      <CodeExample ref={sections.code2.el} {...code.code1}/>
-      <CodeExample ref={sections.code3.el} {...code.code1}/>
+      {/* <CodeExample ref={sections.code2.el} {...code.code1}/>
+      <CodeExample ref={sections.code3.el} {...code.code1}/> */}
       <Footer ref={sections.footer.el}/>
       <div className="bottom-overflow"></div>
     </>

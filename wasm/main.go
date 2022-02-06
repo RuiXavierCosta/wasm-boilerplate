@@ -4,14 +4,21 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"sort"
+	"strings"
 	"syscall/js"
 )
 
 type WASMBenchmarks struct {
-	sayHi, shutdownCb js.Func
-	console           js.Value
-	done              chan struct{}
+	inBuf                   []uint8
+	outBuf                  bytes.Buffer
+	sortStringsCb           js.Func
+	shutdownCb, loadNamesCb js.Func
+	randomNames             []string
+	console                 js.Value
+	done                    chan struct{}
 }
 
 func NewWASM() *WASMBenchmarks {
@@ -30,12 +37,14 @@ func main() {
 // to be sent from the browser.
 func (b *WASMBenchmarks) Start() {
 	// Setup callbacks
-	b.setupSayHi()
-	js.Global().Set("sayHi", b.sayHi)
+	b.setupOnNamesLoadCb()
+	js.Global().Set("loadNamesToGo", b.loadNamesCb)
+	b.setupSortStrings()
+	js.Global().Set("sortStringsWasm", b.sortStringsCb)
 
 	<-b.done
 	fmt.Println("Shutting down app")
-	b.sayHi.Release()
+	b.sortStringsCb.Release()
 	b.shutdownCb.Release()
 }
 
@@ -46,9 +55,24 @@ func (b *WASMBenchmarks) setupShutdownCb() {
 	})
 }
 
-func (b *WASMBenchmarks) setupSayHi() {
-	b.sayHi = js.FuncOf(func(this js.Value, args []js.Value) interface{} {
-		fmt.Println("Hello, WebAssembly!")
+func (b *WASMBenchmarks) setupSortStrings() {
+	b.sortStringsCb = js.FuncOf(func(this js.Value, args []js.Value) interface{} {
+		fmt.Println("ordering WASM")
+		sort.Strings(b.randomNames)
+		fmt.Println("ordered WASM")
+		return nil
+	})
+}
+
+func (b *WASMBenchmarks) setupOnNamesLoadCb() {
+	b.loadNamesCb = js.FuncOf(func(this js.Value, args []js.Value) interface{} {
+		array := args[0]
+		b.inBuf = make([]uint8, array.Get("byteLength").Int())
+		js.CopyBytesToGo(b.inBuf, array)
+
+		reader := string(b.inBuf)
+		b.randomNames = strings.Split(reader, ",")
+		fmt.Println("Loaded names list")
 		return nil
 	})
 }

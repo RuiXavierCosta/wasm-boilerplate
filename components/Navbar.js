@@ -28,7 +28,7 @@ export default function Navbar({sections}) {
 
   return (
       <nav className="navbar position-relative">
-        <div className="nav-content position-fixed w-100 py-2 py-sm-3 px-sm-0 container top-0 bg-light text-dark d-flex justify-content-between align-items-center">
+        <div className="nav-content position-fixed w-100 py-2 py-md-3 px-md-0 container top-0 bg-light text-dark d-flex justify-content-between align-items-center">
           <p className="h6 m-0">{ sectionName }</p>
           <Link href="/">
             <a className="nav-link m-0">Xavier Costa</a>

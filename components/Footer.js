@@ -16,7 +16,7 @@ export default React.forwardRef(function Footer (props, ref) {
 
   return (
     <footer ref={ref} className="container d-flex flex-column justify-content-between align-items-start py-5">
-      <div className="half-background portrait-background d-none d-sm-block">
+      <div className="half-background portrait-background d-none d-md-block">
         <Image layout="fill" objectFit="cover" src={portraitPhoto} alt="Xavier Costa's Portrait"/>
       </div>
       <a href={parsedMailTo} className="footer-content email-link justify-self-start ms-5 mt-2 mb-5" target="_blank" rel="noreferrer">

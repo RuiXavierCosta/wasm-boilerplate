@@ -7,7 +7,7 @@ function Application({ Component, pageProps }) {
   return (
     <>
       <Script src="wasmExec.js" strategy="beforeInteractive"></Script>
-      <Script src="prism.js" strategy="beforeInteractive"></Script>
+      <Script src="mock-data.js"></Script>
       <Component {...pageProps} />
     </>
   );
