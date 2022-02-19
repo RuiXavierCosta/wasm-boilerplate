@@ -17,7 +17,7 @@ export default React.forwardRef(function Disclaimer(props, ref) {
       className="disclaimer container h-100 d-flex flex-column justify-content-center"
     >
       <div className="disclaimer-content px-3 ps-md-5 pe-md-0">
-        <p className="h5 text-center">Disclaimer</p>
+        <p className="h5 disclaimer-title">Disclaimer</p>
         <p className="mb-0">
           The algorithms used in this demo are far from optimized, and are just
           some random code I made up on the spot, or got from the internet.{" "}
