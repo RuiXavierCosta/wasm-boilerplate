@@ -50,7 +50,7 @@ export default React.forwardRef(function CodeExample(
       className="code-example container h-100 d-flex flex-column justify-content-center"
       id={uri}
     >
-      <div className="code-content px-2 ps-md-3 pe-md-3 py-5 w-100">
+      <div className="code-content px-3 ps-md-3 pe-md-3 py-5 w-100">
         <div className="row mb-3">
           <span className="h5 w-auto my-1">
             <a href={`#${uri}`} className="text-primary">

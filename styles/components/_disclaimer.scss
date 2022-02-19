@@ -1,0 +1,15 @@
+.disclaimer {
+  background: transparent;
+  position: relative;
+
+  .disclaimer-content {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    width: 100%;
+
+    @media (min-width: map-get($grid-breakpoints, "md")) {
+      width: 50%;
+    }
+  }
+}
