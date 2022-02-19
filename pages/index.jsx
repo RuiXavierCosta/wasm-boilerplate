@@ -11,6 +11,7 @@ import Navbar from 'components/Navbar';
 import BackgroundBar from 'components/BackgroundBar';
 import ShortBio from 'components/ShortBio';
 import CodeExample from 'components/CodeExample';
+import Disclaimer from 'components/Disclaimer';
 import Footer from 'components/Footer';
 
 const sections = {
@@ -33,6 +34,11 @@ const sections = {
     el: React.createRef(),
     title: 'Example #3',
     color: new Color(...BLUES[2]),
+  },
+  disclaimer: {
+    el: React.createRef(),
+    title: 'Disclaimer',
+    color: new Color(...BLUES[3]),
   },
   footer: {
     el: React.createRef(),
@@ -202,6 +208,7 @@ export default function Home() {
       <CodeExample ref={sections.code1.el} {...code.code1}/>
       <CodeExample ref={sections.code2.el} {...code.code2}/>
       <CodeExample ref={sections.code3.el} {...code.code3}/>
+      <Disclaimer ref={sections.disclaimer.el}/>
       <Footer ref={sections.footer.el}/>
       <div className="bottom-overflow"></div>
     </>
